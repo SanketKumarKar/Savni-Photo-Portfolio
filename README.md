@@ -25,8 +25,9 @@ A modern, fully responsive photography portfolio website built with HTML, CSS, a
 - **Swipe Gestures**: Touch swipe support for mobile lightbox navigation
 
 ### 📧 Contact & Interaction
-- **Contact Form**: Functional contact form with validation
-- **Email Integration**: Direct mailto integration for inquiries
+- **Contact Form**: Functional contact form with EmailJS integration
+- **Email Integration**: Direct email sending via EmailJS service
+- **Form Validation**: Real-time validation with user feedback
 - **Social Media Links**: Easy access to social profiles
 - **Professional Information**: Clear contact details and location info
 
@@ -103,6 +104,7 @@ Savni Portfolio/
 ### Dependencies
 - **Google Fonts**: Playfair Display & Inter
 - **Font Awesome**: Icons for UI elements
+- **EmailJS**: Contact form email functionality
 - **No Framework Required**: Pure HTML, CSS, and JavaScript
 
 ### Performance Features
@@ -166,3 +168,22 @@ To add Google Analytics or other tracking:
 ---
 
 For any technical questions or customization needs, refer to the comments in the code files or consult web development resources.
+
+## EmailJS Setup (Required)
+
+The contact form uses EmailJS to send emails directly. To make it functional:
+
+1. **Get your EmailJS Public Key** from [EmailJS Dashboard](https://dashboard.emailjs.com/)
+2. **Replace the placeholder** in `script.js`:
+   ```javascript
+   emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
+   ```
+3. **Configure your template** with these variables:
+   - `{{from_name}}` - Sender's name
+   - `{{from_email}}` - Sender's email  
+   - `{{subject}}` - Message subject
+   - `{{message}}` - Message content
+   - `{{to_name}}` - Recipient name (Savni Goyal)
+   - `{{to_email}}` - Recipient email (goyalsavni@gmail.com)
+
+See `EMAILJS_SETUP.md` for detailed instructions.
