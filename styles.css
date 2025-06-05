@@ -115,84 +115,385 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: white;
     position: relative;
+    overflow: hidden;
+    color: white;
+    text-align: center;
 }
 
 .hero-content {
-    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
     padding: 0 20px;
 }
 
 .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
+    transform: translateY(50px) scale(0.8) rotateX(90deg);
+    animation: heroTitleAnimation 2s ease-out 0.5s forwards;
+    position: relative;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.hero-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease infinite;
+    opacity: 0;
+    animation: textGlow 3s ease-in-out 1.5s forwards;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
     font-weight: 300;
-    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease 0.3s forwards;
+    transform: translateX(-50px) rotateY(90deg);
+    animation: slideInLeft 1.5s ease 1s forwards;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease 0.6s forwards;
+    transform: translateX(50px) rotateY(-90deg);
+    animation: slideInRight 1.5s ease 1.2s forwards;
+    font-style: italic;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 500;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(15px);
+    transition: all 0.4s ease;
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease 0.9s forwards;
+    transform: translateY(30px) scale(0.5) rotateZ(180deg);
+    animation: buttonAppear 1.8s ease 1.5s forwards;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 .cta-button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border-color: rgba(255, 255, 255, 0.7);
 }
 
+.btn-icon {
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .btn-icon {
+    transform: translateX(5px);
+}
+
+/* Animated Background Particles */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 40% 20%, rgba(255,255,255,0.15) 1px, transparent 1px),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 60% 90%, rgba(255,255,255,0.12) 1px, transparent 1px);
+    background-size: 100px 100px, 80px 80px, 120px 120px, 90px 90px;
+    animation: particleFloat 20s infinite linear;
+    z-index: 1;
+}
+
+/* Dynamic Background Waves */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(255,255,255,0.03) 50%, transparent 70%);
+    animation: backgroundShift 15s infinite ease-in-out;
+    z-index: 1;
+}
+
+/* Floating Background Shapes */
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+.shape-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+    animation: floatShape 12s infinite ease-in-out;
+}
+
+.shape-2 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 15%;
+    animation: floatShape 10s infinite ease-in-out reverse;
+}
+
+.shape-3 {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 20%;
+    animation: floatShape 14s infinite ease-in-out;
+    animation-delay: 2s;
+}
+
+/* Floating Photography Icons */
+.floating-element {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.floating-1 {
+    top: 15%;
+    left: 15%;
+    animation: floatIcon 8s infinite ease-in-out;
+}
+
+.floating-2 {
+    top: 20%;
+    right: 20%;
+    animation: floatIcon 10s infinite ease-in-out;
+    animation-delay: 2s;
+}
+
+.floating-3 {
+    bottom: 25%;
+    left: 25%;
+    animation: floatIcon 12s infinite ease-in-out;
+    animation-delay: 4s;
+}
+
+.floating-4 {
+    bottom: 30%;
+    right: 30%;
+    animation: floatIcon 9s infinite ease-in-out;
+    animation-delay: 1s;
+}
+
+/* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.5rem;
-    animation: bounce 2s infinite;
+    opacity: 0;
+    animation: scrollIndicatorAnimation 2s ease 2.5s forwards;
+    z-index: 2;
+    cursor: pointer;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+/* Keyframe Animations */
+@keyframes heroTitleAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8) rotateX(90deg);
     }
+    50% {
+        transform: translateY(-10px) scale(1.05) rotateX(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px) rotateY(90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0deg);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) rotateY(-90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0deg);
+    }
+}
+
+@keyframes buttonAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.5) rotateZ(180deg);
+    }
+    70% {
+        transform: translateY(-5px) scale(1.1) rotateZ(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateZ(0deg);
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(10px) rotate(240deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(360deg);
+    }
+}
+
+@keyframes backgroundShift {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+}
+
+@keyframes floatShape {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(0px) translateX(40px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(30px) translateX(20px) rotate(270deg);
+    }
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translateY(-15px) translateX(10px) rotate(90deg) scale(1.1);
+    }
+    50% {
+        transform: translateY(0px) translateX(20px) rotate(180deg) scale(1);
+    }
+    75% {
+        transform: translateY(15px) translateX(10px) rotate(270deg) scale(0.9);
+    }
+}
+
+@keyframes scrollIndicatorAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Continuous bounce animation for scroll indicator */
+.scroll-indicator {
+    animation: scrollIndicatorAnimation 2s ease 2.5s forwards, bounce 2s infinite 4.5s;
 }
 
 @keyframes bounce {
@@ -200,10 +501,10 @@ body {
         transform: translateX(-50%) translateY(0);
     }
     40% {
-        transform: translateX(-50%) translateY(-10px);
+        transform: translateX(-50%) translateY(-15px);
     }
     60% {
-        transform: translateX(-50%) translateY(-5px);
+        transform: translateX(-50%) translateY(-8px);
     }
 }
 
@@ -638,105 +939,76 @@ body {
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
-
+    
     .hero-subtitle {
         font-size: 1.1rem;
+        letter-spacing: 1px;
     }
-
-    .section-title {
-        font-size: 2rem;
+    
+    .hero-description {
+        font-size: 1rem;
     }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .skills {
-        grid-template-columns: 1fr;
-    }
-
-    .photo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .filter-buttons {
-        gap: 10px;
-    }
-
-    .filter-btn {
-        padding: 8px 20px;
+    
+    .cta-button {
+        padding: 12px 30px;
         font-size: 0.9rem;
+    }
+    
+    .floating-element {
+        font-size: 1.5rem;
+    }
+    
+    .bg-shape {
+        opacity: 0.5;
+    }
+    
+    .shape-1 {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .shape-2 {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .shape-3 {
+        width: 80px;
+        height: 80px;
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
-
+    
     .hero-subtitle {
         font-size: 1rem;
     }
-
-    .photo-grid {
-        grid-template-columns: 1fr;
+    
+    .hero-description {
+        font-size: 0.9rem;
     }
-
-    .contact-form {
-        padding: 20px;
-    }
-
-    .lightbox-nav {
-        padding: 0 10px;
-    }
-
-    .prev, .next {
-        padding: 12px;
-        font-size: 16px;
+    
+    .floating-element {
+        font-size: 1.2rem;
     }
 }
 
-/* Animation Classes */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Loading Animation */
-.loading {
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-/* Smooth scrolling enhancement */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
+/* Performance optimization for animations */
+@media (prefers-reduced-motion: reduce) {
+    .hero *,
+    .hero::before,
+    .hero::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .hero-content > * {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
