@@ -275,7 +275,7 @@ body {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    z-index: 1;
+    z-index: 0;
 }
 
 .shape-1 {
@@ -307,8 +307,8 @@ body {
 .floating-element {
     position: absolute;
     font-size: 2rem;
-    color: rgba(255, 255, 255, 0.2);
-    z-index: 1;
+    color: rgba(255, 255, 255, 0.3);
+    z-index: 3;
 }
 
 .floating-1 {
