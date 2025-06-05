@@ -259,6 +259,20 @@ body {
     justify-content: center;
 }
 
+.about-photo {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-photo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
 .image-placeholder {
     width: 250px;
     height: 300px;
