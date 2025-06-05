@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savni Goyal - Photography Portfolio</title>    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Savni Goyal</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Savni Goyal</h1>
+            <p class="hero-subtitle">Photography • Visual Storytelling • Creative Vision</p>
+            <p class="hero-description">Capturing moments that tell stories beyond words</p>
+            <a href="#portfolio" class="cta-button">View My Work</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about-description">
+                        Welcome to my visual world. I'm Savni Goyal, a passionate photographer dedicated to capturing 
+                        the beauty in everyday moments and extraordinary scenes. With an eye for detail and a love for 
+                        storytelling, I create images that resonate with emotion and authenticity.
+                    </p>
+                    <p class="about-description">
+                        My photography style focuses on natural light, genuine emotions, and the unique character of 
+                        each subject. Whether it's a candid portrait, a breathtaking landscape, or an intimate moment, 
+                        I strive to create timeless images that tell compelling stories.
+                    </p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <i class="fas fa-camera"></i>
+                            <span>Portrait Photography</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-mountain"></i>
+                            <span>Landscape Photography</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Event Photography</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Creative Direction</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                        <p>Professional Photo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <p class="section-subtitle">A collection of my favorite captures</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="portraits">Portraits</button>
+                <button class="filter-btn" data-filter="landscapes">Landscapes</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+            </div>
+
+            <!-- Photo Grid -->
+            <div class="photo-grid" id="photo-grid">
+                <div class="photo-item" data-category="portraits">
+                    <img src="IMG-20250605-WA0016.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="landscapes">
+                    <img src="IMG-20250605-WA0017.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="events">
+                    <img src="IMG-20250605-WA0018.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="portraits">
+                    <img src="IMG-20250605-WA0019.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="landscapes">
+                    <img src="IMG-20250605-WA0020.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="events">
+                    <img src="IMG-20250605-WA0021.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="portraits">
+                    <img src="IMG-20250605-WA0022.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="landscapes">
+                    <img src="IMG-20250605-WA0023.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="events">
+                    <img src="IMG-20250605-WA0024.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="portraits">
+                    <img src="IMG-20250605-WA0025.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="landscapes">
+                    <img src="IMG-20250605-WA0026.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="events">
+                    <img src="IMG-20250605-WA0027.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="portraits">
+                    <img src="IMG-20250605-WA0028.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="landscapes">
+                    <img src="IMG-20250605-WA0029.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="photo-item" data-category="events">
+                    <img src="IMG-20250605-WA0030.jpg" alt="Photography by Savni Goyal" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's create something beautiful together</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>goyalsavni@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>Available upon request</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Available for shoots worldwide</p>
+                        </div>
+                    </div>
+                </div>
+                  <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="from_name" name="from_name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="from_email" name="from_email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Savni Goyal Photography. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-nav">
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
